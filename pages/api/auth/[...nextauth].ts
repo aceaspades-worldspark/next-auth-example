@@ -11,6 +11,7 @@ import Auth0Provider from "next-auth/providers/auth0";
 // https://next-auth.js.org/configuration/options
 export const authOptions: NextAuthOptions = {
   // https://next-auth.js.org/configuration/providers/oauth
+  secret: process.env.SECRET,
   providers: [
     {
       id: "epic",
