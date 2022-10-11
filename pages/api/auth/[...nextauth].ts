@@ -16,7 +16,18 @@ export const authOptions: NextAuthOptions = {
       id: "epic",
       name: "Epic",
       type: "oauth",
-      authorization: `https://www.epicgames.com/id/authorize?client_id=${process.env.EPIC_CLIENT_ID}&response_type=code&scope=basic_profile&state=abc123`,
+      version: "2.0",
+      clientId: process.env.EPIC_CLIENT_ID,
+      wellKnown: "https://api.epicgames.dev/epic/oauth/v1/.well-known/openid-configuration",
+      authorization: {
+        url: "https://www.epicgames.com/id/authorize",
+        params: {
+          client_id: process.env.EPIC_CLIENT_ID,
+          response_type: "code",
+          scope: "basic_profile",
+          state: "abc123"
+        }
+      },
       token: "https://api.epicgames.dev/epic/oauth/v1/token",
       userinfo: "https://api.epicgames.dev/epic/oauth/v1/userInfo",
       profile(profile) {
