@@ -17,10 +17,10 @@ export const authOptions: NextAuthOptions = {
       authorization: {
         url: "https://www.epicgames.com/id/authorize",
         params: {
-          // client_id: process.env.EPIC_CLIENT_ID,
+          client_id: process.env.EPIC_CLIENT_ID,
           response_type: "code",
           scope: "basic_profile",
-          // state: "abc123"
+          state: "abc123"
         }
       },
       token: "https://api.epicgames.dev/epic/oauth/v1/token",
